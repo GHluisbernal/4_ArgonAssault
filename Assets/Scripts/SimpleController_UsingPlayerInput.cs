@@ -7,9 +7,16 @@ using UnityEngine.InputSystem.Interactions;
 public class SimpleController_UsingPlayerInput : MonoBehaviour
 {
     [SerializeField]private float xSpeed = 10f;
-    [SerializeField]private float xRange = 10f;
+    [SerializeField]private float xRange = 9f;
+
     [SerializeField]private float ySpeed = 10f;
-    [SerializeField]private float yRange = 6f;
+    [SerializeField]private float yRange = 5f;
+
+    [SerializeField] private float positionPitchFactor = -5f;
+    [SerializeField] private float controlPitchFactor = -20f;
+
+    [SerializeField] private float positionYawFactor = 5f;
+    [SerializeField]private float controlRollFactor = -35;
 
 
     private float rotateSpeed;
@@ -69,10 +76,24 @@ public class SimpleController_UsingPlayerInput : MonoBehaviour
         // Update orientation first, then move. Otherwise move orientation will lag
         // behind by one frame.
         //Look(m_Look);
-        Move(m_Move);
+        ProccessTranslation(m_Move);
+        ProccessRotation(m_Move);
     }
 
-    private void Move(Vector2 direction)
+    private void ProccessRotation(Vector2 direction)
+    {
+
+        var pitchDueToPosition = transform.localPosition.y * positionPitchFactor;
+        var pitchDueToControlThrow = direction.y * controlPitchFactor;
+        var pitch = pitchDueToPosition + pitchDueToControlThrow;
+
+        var yaw = transform.localPosition.x * positionYawFactor;
+
+        var roll = direction.x * controlRollFactor;
+        transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
+    }
+
+    private void ProccessTranslation(Vector2 direction)
     {
         if (direction.sqrMagnitude < 0.01)
             return;
