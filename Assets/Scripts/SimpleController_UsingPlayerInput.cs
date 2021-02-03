@@ -71,7 +71,6 @@ public class SimpleController_UsingPlayerInput : MonoBehaviour
     public void OnPlayerDeath() // Called by string reference
     {
         isControlEnabled = false;
-        print("froze controls");
     }
 
     public void OnGUI()
