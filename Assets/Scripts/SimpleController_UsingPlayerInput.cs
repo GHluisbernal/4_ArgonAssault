@@ -6,19 +6,22 @@ using UnityEngine.InputSystem.Interactions;
 // Use a separate PlayerInput component for setting up input.
 public class SimpleController_UsingPlayerInput : MonoBehaviour
 {
-    [SerializeField]private float xSpeed = 10f;
-    [SerializeField]private float xRange = 9f;
+    [Header("General")]
+    [SerializeField] private float xSpeed = 10f;
+    [SerializeField] private float xRange = 9f;
+    [SerializeField] private float ySpeed = 10f;
+    [SerializeField] private float yRange = 5f;
 
-    [SerializeField]private float ySpeed = 10f;
-    [SerializeField]private float yRange = 5f;
-
+    [Header("Screen Position Based")]
     [SerializeField] private float positionPitchFactor = -5f;
-    [SerializeField] private float controlPitchFactor = -20f;
-
     [SerializeField] private float positionYawFactor = 5f;
-    [SerializeField]private float controlRollFactor = -35;
+
+    [Header("Control Throw Based")]
+    [SerializeField] private float controlPitchFactor = -20f;
+    [SerializeField] private float controlRollFactor = -35;
 
 
+    private bool isControlEnabled = true;
     private float rotateSpeed;
     private float burstSpeed;
     public GameObject projectile;
@@ -65,6 +68,12 @@ public class SimpleController_UsingPlayerInput : MonoBehaviour
         }
     }
 
+    public void OnPlayerDeath() // Called by string reference
+    {
+        isControlEnabled = false;
+        print("froze controls");
+    }
+
     public void OnGUI()
     {
         if (m_Charging)
@@ -74,10 +83,11 @@ public class SimpleController_UsingPlayerInput : MonoBehaviour
     public void Update()
     {
         // Update orientation first, then move. Otherwise move orientation will lag
-        // behind by one frame.
-        //Look(m_Look);
-        ProccessTranslation(m_Move);
-        ProccessRotation(m_Move);
+        if (isControlEnabled)
+        {
+            ProccessTranslation(m_Move);
+            ProccessRotation(m_Move);
+        }
     }
 
     private void ProccessRotation(Vector2 direction)
