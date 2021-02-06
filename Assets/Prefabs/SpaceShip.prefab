@@ -134,11 +134,13 @@ MonoBehaviour:
   xRange: 9
   ySpeed: 10
   yRange: 5
+  guns:
+  - {fileID: 2705906450430923432}
+  - {fileID: 6449547416342038627}
   positionPitchFactor: -5
   positionYawFactor: 4
   controlPitchFactor: -20
   controlRollFactor: -35
-  projectile: {fileID: 0}
 --- !u!114 &7476338663081684723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,7 +202,19 @@ MonoBehaviour:
     m_ActionId: b39a7460-7fd7-4eae-b360-78d741b74af4
     m_ActionName: Player/Look[/XInputControllerWindows/rightStick,/Mouse/delta]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7011062088186120811}
+        m_TargetAssemblyTypeName: SimpleController_UsingPlayerInput, Assembly-CSharp
+        m_MethodName: OnFire
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 33aa5fa9-0413-427f-80b2-dd8354d7d877
     m_ActionName: Player/Fire[/XInputControllerWindows/rightTrigger,/Mouse/leftButton]
   - m_PersistentCalls:
@@ -5216,8 +5230,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bullets Right
       objectReference: {fileID: 0}
+    - target: {fileID: 9169983627549788463, guid: 323ee067016596f4ea727f64da94d903,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 323ee067016596f4ea727f64da94d903, type: 3}
+--- !u!1 &6449547416342038627 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9169983627549788463, guid: 323ee067016596f4ea727f64da94d903,
+    type: 3}
+  m_PrefabInstance: {fileID: 2793136334000865612}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2074414746183660113 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4182431778289496861, guid: 323ee067016596f4ea727f64da94d903,
@@ -5291,8 +5316,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bullets Left
       objectReference: {fileID: 0}
+    - target: {fileID: 9169983627549788463, guid: 323ee067016596f4ea727f64da94d903,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 323ee067016596f4ea727f64da94d903, type: 3}
+--- !u!1 &2705906450430923432 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9169983627549788463, guid: 323ee067016596f4ea727f64da94d903,
+    type: 3}
+  m_PrefabInstance: {fileID: 6543479650601884551}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6973234238936017050 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4182431778289496861, guid: 323ee067016596f4ea727f64da94d903,
