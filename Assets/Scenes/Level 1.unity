@@ -625,6 +625,7 @@ GameObject:
   - component: {fileID: 941577318}
   - component: {fileID: 941577320}
   - component: {fileID: 941577319}
+  - component: {fileID: 941577321}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -693,6 +694,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941577317}
   m_CullTransparentMesh: 1
+--- !u!114 &941577321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941577317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4af2ce123a9f4b8478a26f747b227ad6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &972321120
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -759,6 +772,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5114035709037735949, guid: 9f65bee734dd25f47a25ed43ed118f78,
         type: 3}
+    - target: {fileID: 7551745066540229257, guid: d39401e2891b1e4439d7839a3a24b3f6,
+        type: 3}
+      propertyPath: scorePerHit
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d39401e2891b1e4439d7839a3a24b3f6, type: 3}
 --- !u!1 &1338864584
@@ -809,10 +827,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
