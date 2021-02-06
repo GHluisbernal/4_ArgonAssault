@@ -32,7 +32,6 @@ public class SimpleController_UsingPlayerInput : MonoBehaviour
 
     public void OnFire(InputAction.CallbackContext context)
     {
-        //print("fire");
         switch (context.phase)
         {
             case InputActionPhase.Started:
