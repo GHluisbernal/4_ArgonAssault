@@ -95,9 +95,11 @@ public class SimpleController_UsingPlayerInput : MonoBehaviour
 
     private void ToggleGuns(bool isActive)
     {
-        foreach (var gun in guns)
+        foreach (var gun in guns) // care may affect death FX
         {
-            gun.SetActive(isActive);
+            var particleSystem = gun.GetComponent<ParticleSystem>();
+            var emissionModule = particleSystem.emission;
+            emissionModule.enabled = isActive;
         }
     }
 }
